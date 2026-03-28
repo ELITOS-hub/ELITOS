@@ -1,0 +1,6 @@
+backend/
+elitos-ecommerce/
+dist/
+build/
+coverage/
+node_modules/

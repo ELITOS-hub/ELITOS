@@ -1,0 +1,225 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  phone        String?        @unique
+  password     String
+  name         String
+  role         UserRole       @default(CUSTOMER)
+  businessName String?
+  gstNumber    String?
+  isApproved   Boolean        @default(false)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  addresses    Address[]
+  orders       Order[]
+  reviews      Review[]
+  wishlist     WishlistItem[]
+}
+
+model Address {
+  id           String   @id @default(cuid())
+  userId       String
+  name         String
+  phone        String
+  addressLine1 String
+  addressLine2 String?
+  city         String
+  state        String
+  pincode      String
+  isDefault    Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orders       Order[]
+}
+
+model Product {
+  id             String         @id @default(cuid())
+  name           String
+  slug           String         @unique
+  description    String?
+  price          Float
+  originalPrice  Float?
+  wholesalePrice Float?
+  moq            Int            @default(1)
+  images         String[]
+  category       String
+  subcategory    String?
+  gender         Gender         @default(UNISEX)
+  sizes          String[]
+  colors         String[]
+  material       String?
+  tags           String[]       @default([])
+  stock          Int            @default(0)
+  featured       Boolean        @default(false)
+  bestseller     Boolean        @default(false)
+  isActive       Boolean        @default(true)
+  specifications Json?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  orderItems     OrderItem[]
+  reviews        Review[]
+  wishlistItems  WishlistItem[]
+
+  @@index([category])
+  @@index([gender])
+  @@index([subcategory])
+  @@index([isActive])
+}
+
+model Order {
+  id                 String        @id @default(cuid())
+  orderNumber        String        @unique
+  userId             String?
+  customerName       String
+  customerEmail      String
+  customerPhone      String
+  subtotal           Float
+  shippingCost       Float         @default(0)
+  discount           Float         @default(0)
+  totalAmount        Float
+  status             OrderStatus   @default(PENDING)
+  paymentStatus      PaymentStatus @default(PENDING)
+  paymentMethod      PaymentMethod
+  razorpayOrderId    String?
+  razorpayPaymentId  String?
+  razorpaySignature  String?
+  shippingName       String
+  shippingPhone      String
+  shippingAddress1   String
+  shippingAddress2   String?
+  shippingCity       String
+  shippingState      String
+  shippingPincode    String
+  addressId          String?
+  trackingNumber     String?
+  trackingUrl        String?
+  orderType          String        @default("retail")
+  notes              String?
+  adminNotes         String?
+  confirmationSent   Boolean       @default(false)
+  shippedNotifSent   Boolean       @default(false)
+  deliveredNotifSent Boolean       @default(false)
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+  address            Address?      @relation(fields: [addressId], references: [id])
+  user               User?         @relation(fields: [userId], references: [id])
+  items              OrderItem[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([paymentStatus])
+  @@index([orderNumber])
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  productId String
+  quantity  Int
+  price     Float
+  size      String?
+  color     String?
+  createdAt DateTime @default(now())
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product  @relation(fields: [productId], references: [id])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  productId String
+  userId    String
+  orderId   String?
+  rating    Int
+  title     String?
+  text      String
+  images    String[]
+  verified  Boolean  @default(false)
+  isVisible Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+  @@index([userId])
+}
+
+model WishlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  createdAt DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+}
+
+model Newsletter {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model WholesaleApplication {
+  id                 String   @id @default(cuid())
+  businessName       String
+  ownerName          String
+  phone              String
+  email              String
+  gstNumber          String?
+  expectedMonthlyQty String
+  status             String   @default("pending")
+  notes              String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+enum UserRole {
+  CUSTOMER
+  WHOLESALE
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  COD
+  UPI
+  CARD
+  NETBANKING
+  RAZORPAY
+}
+
+enum Gender {
+  MEN
+  WOMEN
+  KIDS
+  UNISEX
+}
