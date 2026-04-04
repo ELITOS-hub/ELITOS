@@ -316,12 +316,24 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const { data } = supabase.auth.onAuthStateChange(async (event, session) => {
         console.log('Supabase auth event:', event);
         
-        // Only handle SIGNED_IN after OAuth redirect (not INITIAL_SESSION)
-        if (event === 'SIGNED_IN' && session?.user && processingGoogleLoginRef.current) {
-          processingGoogleLoginRef.current = false;
-          const user = await createUserFromSupabase(session.user);
-          localStorage.setItem('elitos_user', JSON.stringify(user));
-          dispatch({ type: 'AUTH_SUCCESS', payload: user });
+        // Handle SIGNED_IN from OAuth redirect
+        // Check both the ref flag AND if the user is an OAuth user (covers page reload during flow)
+        if (event === 'SIGNED_IN' && session?.user) {
+          const isOAuthUser = session.user.app_metadata?.provider === 'google' || 
+                              session.user.app_metadata?.providers?.includes('google');
+          const alreadyLoggedIn = localStorage.getItem('elitos_user');
+          
+          if (processingGoogleLoginRef.current || (isOAuthUser && !alreadyLoggedIn)) {
+            processingGoogleLoginRef.current = false;
+            try {
+              const user = await createUserFromSupabase(session.user);
+              localStorage.setItem('elitos_user', JSON.stringify(user));
+              dispatch({ type: 'AUTH_SUCCESS', payload: user });
+            } catch (err) {
+              console.error('Failed to process Google login:', err);
+              dispatch({ type: 'AUTH_ERROR', payload: 'Google login failed. Please try again.' });
+            }
+          }
         }
         
         // Handle token refresh silently

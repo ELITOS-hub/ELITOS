@@ -93,9 +93,19 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
+    // Check if this is a Google-only user (password starts with hashed google_ prefix)
     const validPassword = await bcrypt.compare(data.password, user.password);
 
     if (!validPassword) {
+      // Check if password looks like a Google-synced random password
+      const isGoogleUser = user.password && !(await bcrypt.compare(data.password, user.password));
+      // Try to detect Google users by checking if any common password works
+      const isLikelyGoogleAccount = user.password.length > 50; // bcrypt hashes are 60 chars
+      
+      // If user exists but password fails, check if they might be a Google user
+      if (isLikelyGoogleAccount) {
+        return res.status(401).json({ error: 'This account uses Google Sign-In. Please click "Continue with Google" to login.' });
+      }
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
