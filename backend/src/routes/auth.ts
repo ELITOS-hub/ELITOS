@@ -268,7 +268,7 @@ router.post('/google-sync', async (req, res) => {
     });
 
     // Admin emails list
-    const adminEmails = ['admin@elitos.com', 'elitos.contact@gmail.com', 'elitosofficial02@gmail.com', 'ragsproai@gmail.com'];
+    const adminEmails = ['admin@elitos.com', 'ragsproai@gmail.com'];
 
     if (!user) {
       // Create new user with Google ID as password (they can't login with password anyway)
