@@ -6,9 +6,9 @@ import { supabase, isSupabaseConfigured } from '../config/supabase';
 // Admin emails list - centralized
 const ADMIN_EMAILS = [
   'admin@elitos.com', 
-  'elitos.contact@gmail.com', 
-  'elitosofficial02@gmail.com', 
-  'ragsproai@gmail.com'
+  'ragsproai@gmail.com',
+  'contactus.elitos@gmail.com',
+  'shivangibabbar0211@gmail.com'
 ];
 
 // Initial auth state
