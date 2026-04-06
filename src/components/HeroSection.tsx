@@ -29,7 +29,7 @@ const HeroSection = () => {
 
       <div className="container-custom relative z-10 text-center py-12">
         <WelcomeMessage />
-        
+
         {/* Micro trust line */}
         <div className="flex items-center justify-center gap-3 text-xs text-gray-500 mb-4 animate-fade-in">
           <span className="flex items-center gap-1">
@@ -49,26 +49,26 @@ const HeroSection = () => {
         </div>
 
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-elitos-brown mb-3 animate-fade-in leading-tight">
-          Affordable Luxe.<br className="md:hidden" /> For Everyone.
+          Drop in. <br className="md:hidden" /> Stand out.
         </h1>
-        
+
         <p className="text-base md:text-lg text-gray-600 max-w-xl mx-auto mb-3 animate-slide-up">
-          Premium footwear and winter essentials for everyday comfort & style.
+          Fresh drops. Limited pairs. Made for those who walk different.
         </p>
 
         <p className="text-xs text-gray-500 mb-6 animate-slide-up">
           Free shipping above ₹999 • COD available • Pan India delivery
         </p>
-        
+
         {/* Main CTAs */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10 animate-slide-up">
-          <button 
+          <button
             onClick={() => scrollToSection('bestsellers')}
             className="btn-primary text-base px-6 py-3 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             Shop Best Sellers
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('collections')}
             className="btn-secondary text-base px-6 py-3 transform hover:scale-105 transition-all duration-200"
           >
@@ -89,7 +89,7 @@ const HeroSection = () => {
               <p className="text-gray-600 text-xs mb-3">
                 Easy checkout, COD available, free shipping above ₹999.
               </p>
-              <button 
+              <button
                 onClick={() => scrollToSection('bestsellers')}
                 className="text-elitos-orange font-medium text-sm hover:underline"
               >
