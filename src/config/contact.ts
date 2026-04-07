@@ -7,8 +7,8 @@ export const CONTACT = {
   whatsappDisplay: '+91 98117 36143',
   
   // Email
-  email: 'elitos.contact@gmail.com',
-  wholesaleEmail: 'elitos.contact@gmail.com',
+  email: 'contactus.elitos@gmail.com',
+  wholesaleEmail: 'contactus.elitos@gmail.com',
   
   // Social Media (update when available)
   instagram: 'elitos.official',

@@ -66,7 +66,7 @@ RAZORPAY_WEBHOOK_SECRET="your-webhook-secret"
 ## 3️⃣ GMAIL SMTP (Emails) - FREE
 
 ### Steps:
-1. Use your Gmail account (elitos.contact@gmail.com)
+1. Use your Gmail account (contactus.elitos@gmail.com)
 2. Enable 2-Factor Authentication on Gmail
 3. Go to [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
 4. Select app: "Mail"
@@ -76,9 +76,9 @@ RAZORPAY_WEBHOOK_SECRET="your-webhook-secret"
 
 ### Keys Needed:
 ```
-GMAIL_USER="elitos.contact@gmail.com"
+GMAIL_USER="contactus.elitos@gmail.com"
 GMAIL_APP_PASSWORD="xxxx xxxx xxxx xxxx"
-EMAIL_FROM="ELITOS <elitos.contact@gmail.com>"
+EMAIL_FROM="ELITOS <contactus.elitos@gmail.com>"
 ```
 
 ---
@@ -145,9 +145,9 @@ RAZORPAY_KEY_SECRET="your-secret"
 RAZORPAY_WEBHOOK_SECRET="your-webhook-secret"
 
 # Email
-GMAIL_USER="elitos.contact@gmail.com"
+GMAIL_USER="contactus.elitos@gmail.com"
 GMAIL_APP_PASSWORD="xxxx xxxx xxxx xxxx"
-EMAIL_FROM="ELITOS <elitos.contact@gmail.com>"
+EMAIL_FROM="ELITOS <contactus.elitos@gmail.com>"
 
 # Cloudinary
 CLOUDINARY_CLOUD_NAME="your-cloud-name"
@@ -156,7 +156,7 @@ CLOUDINARY_API_SECRET="your-api-secret"
 
 # Admin
 ADMIN_WHATSAPP="919811736143"
-ADMIN_EMAIL="elitos.contact@gmail.com"
+ADMIN_EMAIL="contactus.elitos@gmail.com"
 
 # Server
 PORT=4000
@@ -286,7 +286,7 @@ npm run dev
 ## 📞 Support
 
 - WhatsApp: +91 98117 36143
-- Email: elitos.contact@gmail.com
+- Email: contactus.elitos@gmail.com
 
 ---
 

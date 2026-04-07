@@ -116,7 +116,7 @@ RAZORPAY_KEY_SECRET="xxxxx"
 RAZORPAY_WEBHOOK_SECRET="xxxxx"
 
 # Email ✅
-GMAIL_USER="elitos.contact@gmail.com"
+GMAIL_USER="contactus.elitos@gmail.com"
 GMAIL_APP_PASSWORD="wikh gmlq zesm edpg"
 
 # Cloudinary ✅
@@ -179,7 +179,7 @@ npm run build
 ## 📱 Contact
 
 - WhatsApp: +91 98117 36143
-- Email: elitos.contact@gmail.com
+- Email: contactus.elitos@gmail.com
 - Address: A-111 Amar Colony, Lajpat Nagar 4, New Delhi 110024
 
 ---

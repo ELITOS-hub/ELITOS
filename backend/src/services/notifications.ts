@@ -157,7 +157,7 @@ export const getOrderConfirmationEmail = (order: {
       
       <div style="text-align: center; color: #666; font-size: 14px;">
         <p>Questions? Contact us on WhatsApp: +91 98117 36143</p>
-        <p>Email: elitos.contact@gmail.com</p>
+        <p>Email: contactus.elitos@gmail.com</p>
         <p style="margin-top: 20px;">© 2023 ELITOS. All rights reserved.</p>
       </div>
     </body>

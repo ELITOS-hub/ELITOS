@@ -237,7 +237,7 @@ const AdminDashboard = ({ onLogout }: AdminDashboardProps) => {
               <div className="flex items-center justify-between py-3 border-b">
                 <div>
                   <p className="font-medium">Contact Email</p>
-                  <p className="text-sm text-gray-500">elitos.contact@gmail.com</p>
+                  <p className="text-sm text-gray-500">contactus.elitos@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center justify-between py-3 border-b">

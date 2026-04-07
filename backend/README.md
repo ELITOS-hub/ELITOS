@@ -195,4 +195,4 @@ Currently uses WhatsApp URL scheme. For production:
 
 ## Support
 
-Contact: elitos.contact@gmail.com
+Contact: contactus.elitos@gmail.com

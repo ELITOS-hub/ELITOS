@@ -38,7 +38,7 @@ const resetTokens = new Map<string, { email: string; expires: Date }>();
 router.post('/register', async (req, res) => {
   try {
     const data = registerSchema.parse(req.body);
-    
+
     const existingUser = await prisma.user.findUnique({
       where: { email: data.email },
     });
@@ -101,7 +101,7 @@ router.post('/login', async (req, res) => {
       const isGoogleUser = user.password && !(await bcrypt.compare(data.password, user.password));
       // Try to detect Google users by checking if any common password works
       const isLikelyGoogleAccount = user.password.length > 50; // bcrypt hashes are 60 chars
-      
+
       // If user exists but password fails, check if they might be a Google user
       if (isLikelyGoogleAccount) {
         return res.status(401).json({ error: 'This account uses Google Sign-In. Please click "Continue with Google" to login.' });
@@ -187,7 +187,7 @@ router.post('/forgot-password', async (req, res) => {
 
     // Send reset email
     const resetUrl = `${process.env.FRONTEND_URL || 'https://elitos.ragspro.com'}?reset=${token}`;
-    
+
     await sendEmail(
       email,
       'Reset Your Password | ELITOS',
@@ -221,7 +221,7 @@ router.post('/reset-password', async (req, res) => {
     const { token, password } = resetPasswordSchema.parse(req.body);
 
     const tokenData = resetTokens.get(token);
-    
+
     if (!tokenData) {
       return res.status(400).json({ error: 'Invalid or expired reset token' });
     }
@@ -268,12 +268,12 @@ router.post('/google-sync', async (req, res) => {
     });
 
     // Admin emails list
-    const adminEmails = ['admin@elitos.com', 'ragsproai@gmail.com'];
+    const adminEmails = ['admin@elitos.com', 'ragsproai@gmail.com', 'contactus.elitos@gmail.com', 'shivangibabbar0211@gmail.com'];
 
     if (!user) {
       // Create new user with Google ID as password (they can't login with password anyway)
       const hashedPassword = await bcrypt.hash(`google_${googleId}_${Date.now()}`, 10);
-      
+
       user = await prisma.user.create({
         data: {
           email,

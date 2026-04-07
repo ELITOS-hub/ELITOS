@@ -82,7 +82,7 @@ These are already set up in your `.env`:
 |---------|--------|---------|
 | Database | ✅ Ready | Supabase PostgreSQL (restore if paused) |
 | JWT Secret | ✅ Secure | Strong random secret generated |
-| Gmail SMTP | ✅ Ready | elitos.contact@gmail.com |
+| Gmail SMTP | ✅ Ready | contactus.elitos@gmail.com |
 | Cloudinary | ✅ Ready | Image uploads configured |
 | Admin WhatsApp | ✅ Ready | 919811736143 |
 
@@ -131,4 +131,4 @@ These are already set up in your `.env`:
 
 If you face any issues:
 - WhatsApp: +91 98117 36143
-- Email: elitos.contact@gmail.com
+- Email: contactus.elitos@gmail.com
