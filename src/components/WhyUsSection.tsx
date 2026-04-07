@@ -14,7 +14,7 @@ const WhyUsSection = () => {
     },
     { 
       icon: Snowflake, 
-      title: 'Authentic Footwear', 
+      title: 'Authentic Winterwear', 
       desc: 'Genuine branded essentials for every season' 
     },
     { 

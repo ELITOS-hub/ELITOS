@@ -1,9 +1,10 @@
 // Core data models for ELITOS e-commerce website
 
 export type Gender = 'men' | 'women' | 'kids' | 'unisex';
-export type ProductCategory = 'footwear';
+export type ProductCategory = 'footwear' | 'winterwear';
 export type SubCategory = 
-  | 'sneakers' | 'casual-shoes' | 'formal-shoes' | 'sandals' | 'sports-shoes' | 'heels';
+  | 'sneakers' | 'casual-shoes' | 'formal-shoes' | 'sandals' | 'sports-shoes' | 'heels'
+  | 'jackets' | 'hoodies' | 'sweaters' | 'puffer' | 'fleece';
 
 export interface Product {
   id: string;

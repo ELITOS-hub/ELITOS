@@ -79,7 +79,7 @@ const Blog = ({ onClose }: BlogProps) => {
               Ready to Shop?
             </h3>
             <p className="text-gray-600 mb-4">
-              Explore our collection of premium footwear.
+              Explore our collection of premium footwear and winterwear.
             </p>
             <button onClick={onClose} className="btn-primary">
               Shop Now

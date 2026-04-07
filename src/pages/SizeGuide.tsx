@@ -10,6 +10,13 @@ const footwearSizes = [
   { uk: '11', us: '12', eu: '45', cm: '28.8' },
 ];
 
+const winterwearSizes = [
+  { size: 'S', chest: '36-38"', waist: '30-32"', length: '26"' },
+  { size: 'M', chest: '38-40"', waist: '32-34"', length: '27"' },
+  { size: 'L', chest: '40-42"', waist: '34-36"', length: '28"' },
+  { size: 'XL', chest: '42-44"', waist: '36-38"', length: '29"' },
+  { size: 'XXL', chest: '44-46"', waist: '38-40"', length: '30"' },
+];
 
 const SizeGuide = () => {
   return (
@@ -96,6 +103,34 @@ const SizeGuide = () => {
           </div>
         </div>
 
+        {/* Winterwear Size Chart */}
+        <div className="mb-16">
+          <h2 className="text-2xl font-bold text-elitos-brown mb-6">
+            🧥 Winterwear Size Chart
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-elitos-cream">
+                  <th className="border border-gray-200 px-6 py-4 text-left font-semibold">Size</th>
+                  <th className="border border-gray-200 px-6 py-4 text-left font-semibold">Chest</th>
+                  <th className="border border-gray-200 px-6 py-4 text-left font-semibold">Waist</th>
+                  <th className="border border-gray-200 px-6 py-4 text-left font-semibold">Length</th>
+                </tr>
+              </thead>
+              <tbody>
+                {winterwearSizes.map((size, index) => (
+                  <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td className="border border-gray-200 px-6 py-4 font-medium">{size.size}</td>
+                    <td className="border border-gray-200 px-6 py-4">{size.chest}</td>
+                    <td className="border border-gray-200 px-6 py-4">{size.waist}</td>
+                    <td className="border border-gray-200 px-6 py-4">{size.length}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
 
         {/* Need Help */}
         <div className="text-center bg-gray-50 rounded-xl p-8">

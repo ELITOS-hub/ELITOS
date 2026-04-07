@@ -142,7 +142,7 @@ const Wholesale = ({ onClose }: WholesaleProps) => {
             Wholesale Partnership
           </h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
-            Partner with ELITOS for quality footwear at wholesale prices.
+            Partner with ELITOS for quality footwear and winterwear at wholesale prices.
           </p>
           
           {/* Quick Contact Buttons */}

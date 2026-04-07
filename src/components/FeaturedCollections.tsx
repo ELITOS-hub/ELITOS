@@ -8,7 +8,13 @@ const collections = [
     image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=500&fit=crop',
     count: '25+ styles',
   },
-
+  {
+    id: 'winterwear',
+    name: 'Winterwear',
+    tagline: 'Stay warm, look cool',
+    image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=500&fit=crop',
+    count: '15+ styles',
+  },
   {
     id: 'bestsellers',
     name: 'Best Sellers',

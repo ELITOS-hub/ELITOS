@@ -24,9 +24,9 @@ interface SEOProps {
 }
 
 const SEO = ({ 
-  title = 'ELITOS - Premium Footwear | Best Prices in India',
-  description = 'Shop premium quality footwear at ELITOS. Best prices, pan-India delivery, COD available, and 100% authentic products. Free shipping on orders above ₹999.',
-  keywords = 'footwear, shoes, sneakers, online shopping, India, affordable, premium, ELITOS, buy shoes online',
+  title = 'ELITOS - Premium Footwear & Winterwear | Best Prices in India',
+  description = 'Shop premium quality footwear and winterwear at ELITOS. Best prices, pan-India delivery, COD available, and 100% authentic products. Free shipping on orders above ₹999.',
+  keywords = 'footwear, shoes, sneakers, winterwear, jackets, hoodies, online shopping, India, affordable, premium, ELITOS, buy shoes online, winter jackets India',
   image = 'https://elitos.ragspro.com/logo.png',
   url = 'https://elitos.ragspro.com',
   type = 'website',
@@ -143,7 +143,7 @@ export const OrganizationSchema = () => {
       name: 'ELITOS',
       url: 'https://elitos.ragspro.com',
       logo: 'https://elitos.ragspro.com/logo.png',
-      description: 'Premium footwear brand in India. Affordable Luxe. For Everyone.',
+      description: 'Premium footwear and winterwear brand in India. Affordable Luxe. For Everyone.',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'A-111 Amar Colony, Lajpat Nagar 4',

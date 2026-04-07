@@ -112,8 +112,12 @@ const ProductCard = ({ product, onViewDetails }: ProductCardProps) => {
 
         {/* Category Badge */}
         <div className="absolute top-2 left-2">
-          <span className="px-2 py-0.5 text-[10px] font-medium rounded-lg backdrop-blur-md bg-blue-500/80 text-white capitalize">
-            {product.category}
+          <span className={`px-2 py-0.5 text-[10px] font-medium rounded-lg backdrop-blur-md ${
+            product.category === 'footwear' 
+              ? 'bg-blue-500/80 text-white' 
+              : 'bg-purple-500/80 text-white'
+          }`}>
+            {product.category === 'footwear' ? 'Footwear' : 'Winterwear'}
           </span>
         </div>
 
