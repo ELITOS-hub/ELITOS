@@ -25,17 +25,17 @@ const genderCategories = {
   men: {
     label: 'Men',
     footwear: ['sneakers', 'casual-shoes', 'formal-shoes', 'sports-shoes'],
-    winterwear: ['jackets', 'hoodies', 'sweaters', 'puffer', 'fleece'],
+    winterwear: [],
   },
   women: {
     label: 'Women',
     footwear: ['sneakers', 'sandals', 'heels', 'casual-shoes', 'sports-shoes'],
-    winterwear: ['jackets', 'hoodies', 'sweaters', 'puffer'],
+    winterwear: [],
   },
   kids: {
     label: 'Kids',
     footwear: ['sneakers', 'sandals', 'sports-shoes'],
-    winterwear: ['jackets', 'hoodies', 'puffer'],
+    winterwear: [],
   },
 };
 
@@ -46,11 +46,6 @@ const subCategoryLabels: Record<string, string> = {
   'sports-shoes': 'Sports Shoes',
   'sandals': 'Sandals',
   'heels': 'Heels',
-  'jackets': 'Jackets',
-  'hoodies': 'Hoodies',
-  'sweaters': 'Sweaters',
-  'puffer': 'Puffer Jackets',
-  'fleece': 'Fleece',
 };
 
 const allSizes = {

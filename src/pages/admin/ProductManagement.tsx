@@ -299,34 +299,24 @@ const ProductManagement = ({ onBack }: ProductManagementProps) => {
                     <option value="unisex">Unisex</option>
                   </select>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Sub Category</label>
-                  <select
-                    value={formData.subCategory}
-                    onChange={(e) => setFormData({ ...formData, subCategory: e.target.value as SubCategory | '' })}
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-elitos-orange"
-                  >
-                    <option value="">Select...</option>
-                    {formData.category === 'footwear' ? (
-                      <>
-                        <option value="sneakers">Sneakers</option>
-                        <option value="casual-shoes">Casual Shoes</option>
-                        <option value="formal-shoes">Formal Shoes</option>
-                        <option value="sports-shoes">Sports Shoes</option>
-                        <option value="sandals">Sandals</option>
-                        <option value="heels">Heels</option>
-                      </>
-                    ) : (
-                      <>
-                        <option value="jackets">Jackets</option>
-                        <option value="hoodies">Hoodies</option>
-                        <option value="sweaters">Sweaters</option>
-                        <option value="puffer">Puffer Jackets</option>
-                        <option value="fleece">Fleece</option>
-                      </>
-                    )}
-                  </select>
-                </div>
+                {formData.category === 'footwear' && (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Sub Category</label>
+                    <select
+                      value={formData.subCategory}
+                      onChange={(e) => setFormData({ ...formData, subCategory: e.target.value as SubCategory | '' })}
+                      className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-elitos-orange"
+                    >
+                      <option value="">Select...</option>
+                      <option value="sneakers">Sneakers</option>
+                      <option value="casual-shoes">Casual Shoes</option>
+                      <option value="formal-shoes">Formal Shoes</option>
+                      <option value="sports-shoes">Sports Shoes</option>
+                      <option value="sandals">Sandals</option>
+                      <option value="heels">Heels</option>
+                    </select>
+                  </div>
+                )}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Material</label>
                   <input
