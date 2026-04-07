@@ -24,7 +24,7 @@ const ProductManagement = ({ onBack }: ProductManagementProps) => {
 
   const [formData, setFormData] = useState({
     name: '',
-    category: 'footwear' as 'footwear' | 'winterwear',
+    category: 'footwear' as 'footwear',
     gender: 'men' as Gender,
     subCategory: '' as SubCategory | '',
     price: '',
@@ -279,11 +279,10 @@ const ProductManagement = ({ onBack }: ProductManagementProps) => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Category *</label>
                   <select
                     value={formData.category}
-                    onChange={(e) => setFormData({ ...formData, category: e.target.value as 'footwear' | 'winterwear' })}
+                    onChange={(e) => setFormData({ ...formData, category: e.target.value as 'footwear' })}
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-elitos-orange"
                   >
                     <option value="footwear">Footwear</option>
-                    <option value="winterwear">Winterwear</option>
                   </select>
                 </div>
                 <div>
@@ -316,15 +315,7 @@ const ProductManagement = ({ onBack }: ProductManagementProps) => {
                         <option value="sandals">Sandals</option>
                         <option value="heels">Heels</option>
                       </>
-                    ) : (
-                      <>
-                        <option value="jackets">Jackets</option>
-                        <option value="hoodies">Hoodies</option>
-                        <option value="sweaters">Sweaters</option>
-                        <option value="puffer">Puffer Jackets</option>
-                        <option value="fleece">Fleece</option>
-                      </>
-                    )}
+                    ) : null}
                   </select>
                 </div>
                 <div>
@@ -573,7 +564,6 @@ const ProductManagement = ({ onBack }: ProductManagementProps) => {
           >
             <option value="all">All Categories</option>
             <option value="footwear">Footwear</option>
-            <option value="winterwear">Winterwear</option>
           </select>
         </div>
 

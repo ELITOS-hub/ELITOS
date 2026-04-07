@@ -222,7 +222,7 @@ const OrderManagement = ({ onBack }: OrderManagementProps) => {
       `━━━━━━━━━━━━━━━━━━━━\n` +
       `Need help? Reply to this message!\n\n` +
       `Thank you for choosing *ELITOS* 🤍\n` +
-      `_Premium Footwear & Winterwear_`
+      `_Premium Footwear_`
     );
 
     if (whatsappPhone) {

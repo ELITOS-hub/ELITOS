@@ -25,17 +25,14 @@ const genderCategories = {
   men: {
     label: 'Men',
     footwear: ['sneakers', 'casual-shoes', 'formal-shoes', 'sports-shoes'],
-    winterwear: ['jackets', 'hoodies', 'sweaters', 'puffer', 'fleece'],
   },
   women: {
     label: 'Women',
     footwear: ['sneakers', 'sandals', 'heels', 'casual-shoes', 'sports-shoes'],
-    winterwear: ['jackets', 'hoodies', 'sweaters', 'puffer'],
   },
   kids: {
     label: 'Kids',
     footwear: ['sneakers', 'sandals', 'sports-shoes'],
-    winterwear: ['jackets', 'hoodies', 'puffer'],
   },
 };
 
@@ -55,7 +52,6 @@ const subCategoryLabels: Record<string, string> = {
 
 const allSizes = {
   footwear: ['4', '5', '6', '7', '8', '9', '10', '11'],
-  winterwear: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   kids: ['1', '2', '3', '4', '5', '4-5Y', '6-7Y', '8-9Y', '10-11Y'],
 };
 
@@ -74,8 +70,8 @@ const ProductsPage = ({ onClose, onBuyNow, initialCategory, initialSearch, initi
   // Filter states
   const [searchQuery, setSearchQuery] = useState(initialSearch || '');
   const [selectedGender, setSelectedGender] = useState<Gender | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<'footwear' | 'winterwear' | null>(
-    initialCategory === 'footwear' || initialCategory === 'winterwear' ? initialCategory : null
+  const [selectedCategory, setSelectedCategory] = useState<'footwear' | null>(
+    initialCategory === 'footwear' ? initialCategory : null
   );
   const [selectedSubCategory, setSelectedSubCategory] = useState<SubCategory | null>(null);
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
@@ -150,10 +146,7 @@ const ProductsPage = ({ onClose, onBuyNow, initialCategory, initialSearch, initi
     if (selectedCategory === 'footwear') {
       return allSizes.footwear;
     }
-    if (selectedCategory === 'winterwear') {
-      return allSizes.winterwear;
-    }
-    return [...allSizes.footwear, ...allSizes.winterwear];
+    return allSizes.footwear;
   }, [selectedGender, selectedCategory]);
 
   // Filter products using context
@@ -265,10 +258,10 @@ const ProductsPage = ({ onClose, onBuyNow, initialCategory, initialSearch, initi
         </button>
         {expandedSections.category && (
           <div className="mt-3 space-y-1">
-            {['footwear', 'winterwear'].map(cat => (
+            {['footwear'].map(cat => (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(selectedCategory === cat ? null : cat as 'footwear' | 'winterwear')}
+                onClick={() => setSelectedCategory(selectedCategory === cat ? null : cat as 'footwear')}
                 className={`w-full text-left px-3 py-2 rounded-lg text-sm capitalize transition-colors ${
                   selectedCategory === cat
                     ? 'bg-elitos-orange text-white'

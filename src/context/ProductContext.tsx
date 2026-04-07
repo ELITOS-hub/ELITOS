@@ -8,7 +8,7 @@ const STORAGE_KEY = 'elitos_products_v2';
 
 interface FilterOptions {
   gender?: Gender | null;
-  category?: 'footwear' | 'winterwear' | null;
+  category?: 'footwear' | null;
   subCategory?: SubCategory | null;
   sizes?: string[];
   priceRange?: [number, number];
@@ -26,7 +26,7 @@ interface ProductContextType {
   deleteProduct: (id: string) => Promise<void>;
   refreshProducts: () => Promise<void>;
   getFilteredProducts: (filters: FilterOptions) => Product[];
-  getProductsByCategory: (category: 'footwear' | 'winterwear') => Product[];
+  getProductsByCategory: (category: 'footwear') => Product[];
   getProductsByGender: (gender: Gender) => Product[];
   getBestSellers: () => Product[];
   getFeaturedProducts: () => Product[];
@@ -198,7 +198,7 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
     return result;
   };
 
-  const getProductsByCategory = (category: 'footwear' | 'winterwear') => {
+  const getProductsByCategory = (category: 'footwear') => {
     return products.filter(p => p.category === category).slice(0, 4);
   };
 
