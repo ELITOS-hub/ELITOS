@@ -26,7 +26,7 @@ const WhyUsSection = lazy(() => import('./components/WhyUsSection'));
 const FeaturedCollections = lazy(() => import('./components/FeaturedCollections'));
 const BestSellers = lazy(() => import('./components/BestSellers'));
 const FootwearSection = lazy(() => import('./components/FootwearSection'));
-const WinterwearSection = lazy(() => import('./components/WinterwearSection'));
+
 const InstagramFeed = lazy(() => import('./components/InstagramFeed'));
 const NewsletterSection = lazy(() => import('./components/NewsletterSection'));
 const BrandPromise = lazy(() => import('./components/BrandPromise'));
@@ -379,7 +379,7 @@ function AppContent() {
         <Suspense fallback={<SectionLoader />}><FeaturedCollections onViewAll={handleViewAllProducts} /></Suspense>
         <Suspense fallback={<SectionLoader />}><BestSellers onViewProduct={handleViewProduct} onViewAll={() => handleViewAllProducts()} /></Suspense>
         <Suspense fallback={<SectionLoader />}><FootwearSection onViewProduct={handleViewProduct} onViewAll={() => handleViewAllProducts('footwear')} /></Suspense>
-        <Suspense fallback={<SectionLoader />}><WinterwearSection onViewProduct={handleViewProduct} onViewAll={() => handleViewAllProducts('winterwear')} /></Suspense>
+
         <Suspense fallback={<SectionLoader />}><InstagramFeed /></Suspense>
         <Suspense fallback={<SectionLoader />}><NewsletterSection /></Suspense>
         <Suspense fallback={<SectionLoader />}><BrandPromise /></Suspense>
